@@ -37,34 +37,54 @@ class Circle extends shape{
     }
 }
 
-public class labno4{
+public class labno4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        shape s;
 
-        System.out.println("Enter the dimensions of the rectangle (length and breadth):");
-        int l = sc.nextInt();
-        int b = sc.nextInt();
-        Rectangle rect = new Rectangle();
-        rect.getData(l, b);
-        rect.printarea();
+        System.out.println("Choose Shape:");
+        System.out.println("1. Rectangle");
+        System.out.println("2. Triangle");
+        System.out.println("3. Circle");
+        System.out.print("Enter your choice: ");
 
-     
-        System.out.println("Enter the dimensions of the triangle (base and height):");
-        int base = sc.nextInt();
-        int height = sc.nextInt();
-        Triangle tri = new Triangle();
-        tri.getData(base, height);
-        tri.printarea();
+        int choice = sc.nextInt();
 
-       
-        System.out.println("Enter the dimension of the circle (radius):");
-        int r = sc.nextInt();
-        Circle cir = new Circle();
-        cir.getData(r);
-        cir.printarea();
+        switch (choice) {
+            case 1:
+                s = new Rectangle();
+                System.out.print("Enter length and breadth: ");
+                int l = sc.nextInt();
+                int b = sc.nextInt();
+                ((Rectangle) s).getData(l, b);
+                s.printarea();
+                break;
+
+            case 2:
+                s = new Triangle();
+                System.out.print("Enter base and height: ");
+                int base = sc.nextInt();
+                int height = sc.nextInt();
+                ((Triangle) s).getData(base, height);
+                s.printarea();
+                break;
+
+            case 3:
+                s = new Circle();
+                System.out.print("Enter radius: ");
+                int r = sc.nextInt();
+                ((Circle) s).getData(r);
+                s.printarea();
+                break;
+
+            default:
+                System.out.println("Invalid choice!");
+        }
 
         sc.close();
     }
 }
+
+
 
 
